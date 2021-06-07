@@ -26,7 +26,14 @@ public class Player {
 
     //methods
 
-    //constructor
+
+    /**
+     * Description: This is the constructor for the player class
+     *
+     * @author John Khalife
+     * @version 2021-06-03
+     *
+     */
     public Player(String fName, String lName) {
 
         //assigning vcalues to instancevariables using parameters
@@ -37,14 +44,28 @@ public class Player {
     }
 
 
-    //default constructor
+
+    /**
+     * Description: This is the default constructor for the player class
+     *
+     * @author John Khalife
+     * @version 2021-06-03
+     *
+     */
     public Player() {
         this.strFName = "Undefined";
         this.strLName = "Undefined";
         intScore = 0;
     }
 
-    //tostring method
+
+    /**
+     * Description: This is the tostring method for the player class
+     *
+     * @author John Khalife
+     * @version 2021-06-03
+     *
+     */
     public String toString() {
         return(this.strFName + " " + this.strLName + " - score: " + this.intScore);
     }
@@ -52,26 +73,79 @@ public class Player {
 
     //get methods
 
-    //method for getting the score
+
+    /**
+     * Description: This is the get method for the score
+     *
+     * @author John Khalife
+     * @version 2021-06-03
+     *
+     */
     public int getScore() {return(this.intScore);}
 
-    //method for getting the last name
+
+    /**
+     * Description: This is a get method for the last name
+     *
+     * @author John Khalife
+     * @version 2021-06-03
+     *
+     */
     public String getLName() {return(this.strLName);}
 
-    //method that returns the first name
+
+    /**
+     * Description: This is a get method for the first name
+     *
+     * @author John Khalife
+     * @version 2021-06-03
+     *
+     */
     public String getFName() {return(this.strFName);}
 
     //set methods
 
-    //setscore method
+
+    /**
+     * Description: This is a set method for the score
+     *
+     * @author John Khalife
+     * @version 2021-06-03
+     *
+     */
     public void setScore(int score) {this.intScore = score;}
 
-    //set lastname method
+
+    /**
+     * Description: This is a set method for the last name
+     *
+     * @author John Khalife
+     * @version 2021-06-03
+     *
+     */
     public void setLName(String lName) {this.strLName = lName;}
 
-    //set first name method
-    public void setFName(String fName) {this.strFName = fName;}
+
+    /**
+     * Description: This is a set method for the first name
+     *
+     * @author John Khalife
+     * @version 2021-06-03
+     *
+     */    public void setFName(String fName) {this.strFName = fName;}
 
 
+
+    /**
+     * Description: This method adds one to the score
+     *
+     * @author John Khalife
+     * @version 2021-06-03
+     *
+     */
+    public void addScore() {
+        //adding one to score:
+        this.intScore++;
+    }
 
 }

@@ -17,100 +17,64 @@ import java.util.Scanner;
 //defining main class
 public class JohnKhalifeGuessingAssignment {
 
-    //main method
+
+    /**
+     * Description: This is the main method of the test class
+     *
+     * @author John Khalife
+     * @version 2021-06-03
+     *
+     */
     public static void main(String[] args) {
 
-    }
+        //variable that will be used for the loop of the whole program
+        boolean boolWhileLoop = false;
 
-    //intro
-    static void intro() {
-        System.out.println("Welcome to the guessing game!");
-        System.out.println("This is a game in which a series of players take turns guessing a number chosen by the computer.");
-        System.out.println("Whoever gets the number right wins the game.");
-        System.out.println("There can be from 2 - 10 players, and the user gets to choose the number of players");
-    }
 
-    //input methods (taken from previous assignments)
+        //starting the while loop of the whole prgram
+        while(boolWhileLoop == false) {
 
-    //this is a method that takes a int from the user with a question as a parameter, and returns the int
-    static int intUserChoice(String strQuestion) {
+            //the game itself will likely run in the game class, rather than just calling a bunch of smaller functions in main from the game class
 
-        //creating a boolean for the user input loop
-        boolean doWhileLoop = false;
-
-        //creating a string for the user input
-        int response = 0;
-
-        //creating a loop for user input
-        while (doWhileLoop == false) {
-
-            //prompting user for name
-            System.out.println(strQuestion);
-
-            //try catch for scanner input
-            try {
-
-                //getting input from the user (the name)
-                response = new Scanner(System.in).nextInt();
-                doWhileLoop = true;
-
-            } catch (Exception e) {
-                //in case there is improper input
-                System.out.println("Incorrect input. Try again");
-                doWhileLoop = false;
-
+            //asking the user if they would like to play the game, if they do then start a new game instance
+            if (booluserChoice("Would you like to play the guessing game?")) {
+                //playing the game
+                GuessingGame game = new GuessingGame();
+            } else {
+                //ending loop
+                System.out.println("Alright! see you later!");
+                boolWhileLoop = true;
             }
+
+
 
         }
 
-        return (response);
 
-    }
 
-    //This is a method that takes a string from the user with a question as a parameter, and returns the value
-    static String strUserChoice(String strQuestion) {
 
-        //creating a boolean for the user input loop
-        boolean doWhileLoop = false;
 
-        //creating a string for the user input
-        String strResponse = "";
-
-        //creating a loop for user input
-        while (!doWhileLoop) {
-
-            //prompting user for name
-            System.out.println(strQuestion);
-
-            //try catch for scanner input
-            try {
-
-                //getting input from the user (the name)
-                strResponse = new Scanner(System.in).nextLine();
-                doWhileLoop = true;
-
-            } catch (Exception e) {
-                //in case there is improper input
-                System.out.println("Incorrect input. Try again");
-                doWhileLoop = false;
-
-            }
-
-        }
-
-        return (strResponse);
 
     }
 
 
-    //This is a method that takes a question as a parameter, asks the user to pick between one or two, and will return the value
-    static byte userChoice(String strQuestion, String strOptions) {
+
+
+
+    /**
+     * Description: This is a method that takes a question as a paremeter and asks the user a yes or no question
+     *
+     * @author John Khalife
+     * @version 2021-06-03
+     *
+     */
+    static boolean booluserChoice(String strQuestion) {
 
         //declaring a variable called dowhileloop for a true/false while loop
-        boolean doWhileLoop = false;
+        boolean boolWhileLoop = false;
 
         //declaring a variable that will return the input
-        byte getInput = 0;
+        String strGetInput = "";
 
         //Prompting the user whatever quiestion was spcified in the parameter
         System.out.println(strQuestion);
@@ -118,35 +82,45 @@ public class JohnKhalifeGuessingAssignment {
 
 
         //creating loop for input
-        while (!doWhileLoop) {
+        while (!boolWhileLoop) {
 
-            System.out.println(strOptions);
+            System.out.println("Please enter yes or no");
 
             //making try catch statement
             try {
 
                 //getting input
-                getInput = new Scanner(System.in).nextByte();
-                doWhileLoop = true;
+                strGetInput = new Scanner(System.in).nextLine();
+                boolWhileLoop = true;
 
             } catch (Exception e) {
                 //asking user to try again
-                doWhileLoop = false;
+                boolWhileLoop = false;
 
             }
 
-            //checking if getInput is not equal to one or two
-            if (getInput != 2 && getInput != 1) {
+            //checking if getInput is not equal to yes or no
+            //System.out.println(strGetInput.toUpperCase());
+            if (!strGetInput.toUpperCase().startsWith("YES") && !strGetInput.toUpperCase().startsWith("NO")) {
                 System.out.println("That was incorrect input. Please try again");
-                doWhileLoop = false;
+                boolWhileLoop = false;
             }
 
         }
 
-        return (getInput);
+        if (strGetInput.toUpperCase().startsWith("YES")) {
+            return(true);
+
+        } else {
+
+        }
+
+        return (false);
 
 
     }
+
+
 
 
 
